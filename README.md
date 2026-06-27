@@ -35,6 +35,31 @@ SpotFix is built using a modern, scalable full-stack architecture:
 
 ---
 
+## 📂 Project Structure
+
+```text
+spotfix/
+├── public/                 # Static assets and icons
+├── src/
+│   ├── components/         # React frontend UI components (Pages, Forms, Maps)
+│   ├── server/             # Express.js backend logic
+│   │   ├── controllers/    # API request handlers (Admin, Auth, Issues, Public)
+│   │   ├── middleware/     # Custom Express middlewares (Auth guards, file uploads)
+│   │   ├── models/         # Mongoose database schemas (User, Issue)
+│   │   └── services/       # External service integrations (Gemini AI, Nodemailer)
+│   ├── App.tsx             # Main React application layout and routing wrapper
+│   ├── index.css           # Global Tailwind CSS styles and animations
+│   ├── main.tsx            # React entry point
+│   └── types.ts            # Shared TypeScript interfaces
+├── .env.example            # Template for required environment variables
+├── .gitignore              # Ignored files and folders for clean Git commits
+├── package.json            # Project dependencies and full-stack npm scripts
+├── server.ts               # Express backend entry point and Vite middleware setup
+└── vite.config.ts          # Vite build configuration
+```
+
+---
+
 ## 🗺️ Page-by-Page Walkthrough
 
 The user flow is meticulously designed for friction-free engagement, organized via a robust `AppLayout` wrapper.
