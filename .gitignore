@@ -1,0 +1,17 @@
+node_modules/
+dist/
+build/
+coverage/
+.DS_Store
+*.log
+server.cjs
+server.cjs.map
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*
+!.env.example

@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Global Text Capitalization */
+body {
+  text-transform: capitalize;
+}
+
+/* Exclusions from Capitalization */
+footer, 
+footer *, 
+input, 
+textarea, 
+select {
+  text-transform: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Google Translate Widget Overrides */
+.goog-te-banner-frame.skiptranslate, 
+iframe.skiptranslate,
+#goog-gt-tt {
+  display: none !important;
+  visibility: hidden !important;
+}
+body {
+  top: 0px !important;
+}
+.goog-tooltip, .goog-tooltip:hover {
+  display: none !important;
+}
+.goog-text-highlight {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+@keyframes logoJumpRotate {
+  0% {
+    transform: translateY(-20px) scale(1) rotate(0deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1.15) rotate(-15deg);
+    opacity: 1;
+  }
+}
+
+.group:hover .logo-animate-jump {
+  animation: logoJumpRotate 0.4s ease-out forwards;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Community Hero",
+  "description": "A hyperlocal problem solver allowing citizens to easily report and track neighborhood issues like potholes, water leaks, bad streetlights, and garbage dumps with real-time status tracking.",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
