@@ -18,7 +18,7 @@ export default function AppLayout() {
           <span className="font-bold text-slate-700 dark:text-slate-300">Vibe2Ship Hackathon</span>
           <span className="text-slate-300 dark:text-slate-600 hidden sm:inline">|</span>
           <span className="flex items-center gap-1">
-            Built with ❤️ for community
+            © SpotFix 2026 All Rights Reserved
           </span>
         </div>
         <div className="flex items-center gap-1 sm:gap-2 bg-slate-50 dark:bg-slate-800/50 py-1 sm:py-1 px-2 sm:px-3 rounded-full border border-slate-200 dark:border-slate-700 shadow-sm transition-all hover:shadow-md hover:border-indigo-300 dark:hover:border-indigo-700">
