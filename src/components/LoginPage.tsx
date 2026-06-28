@@ -4,6 +4,7 @@ import { LogIn, Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import Navbar from './Navbar';
+import { useAudio } from '../contexts/AudioContext';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -13,9 +14,11 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { playClick, playSuccess } = useAudio();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    playClick();
     setLoading(true);
     setError('');
 
@@ -43,6 +46,7 @@ export default function LoginPage() {
       localStorage.setItem('userName', data.name);
       localStorage.setItem('userId', data._id);
 
+      playSuccess();
       navigate('/dashboard');
     } catch (err: any) {
       setError(err.message);

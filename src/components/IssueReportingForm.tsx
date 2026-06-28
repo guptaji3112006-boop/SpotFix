@@ -21,6 +21,7 @@ import { IssueReport, IssueCategory, UrgencyLevel } from '../types';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import { useAudio } from '../contexts/AudioContext';
 
 // Fix for default marker icons in React Leaflet
 const customIcon = new L.Icon({
@@ -40,6 +41,7 @@ interface IssueReportingFormProps {
 
 export default function IssueReportingForm({ onSubmitReport }: IssueReportingFormProps) {
   const { t } = useTranslation();
+  const { playClick, playSuccess } = useAudio();
   // Form parameters
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -82,6 +84,7 @@ export default function IssueReportingForm({ onSubmitReport }: IssueReportingFor
 
   // Browser Geolocation Trigger
   const handleFetchLocation = () => {
+    playClick();
     if (!navigator.geolocation) {
       setLocationStatus('error');
       setLocationError('Geolocation is not supported by your browser.');
@@ -156,6 +159,7 @@ export default function IssueReportingForm({ onSubmitReport }: IssueReportingFor
 
   // Helper to process files (images and videos)
   const processImageFile = (file: File) => {
+    playClick();
     if (!file.type.startsWith('image/') && !file.type.startsWith('video/')) {
       alert('Please upload an image or video file.');
       return;
@@ -302,6 +306,7 @@ export default function IssueReportingForm({ onSubmitReport }: IssueReportingFor
   // Submit complete details
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    playClick();
 
     if (!title.trim()) {
       alert('Please provide a title for the issue.');
@@ -334,6 +339,7 @@ export default function IssueReportingForm({ onSubmitReport }: IssueReportingFor
         apiLimitExceeded
       });
 
+      playSuccess();
       // Reset Form
       setTitle('');
       setDescription('');

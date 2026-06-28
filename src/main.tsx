@@ -4,11 +4,14 @@ import { BrowserRouter } from 'react-router-dom';
 import './i18n';
 import App from './App.tsx';
 import './index.css';
+import { AudioProvider } from './contexts/AudioContext';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <AudioProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </AudioProvider>
   </StrictMode>,
 );

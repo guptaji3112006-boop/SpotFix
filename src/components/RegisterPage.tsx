@@ -5,6 +5,7 @@ import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 import Navbar from './Navbar';
+import { useAudio } from '../contexts/AudioContext';
 
 export default function RegisterPage() {
   const [name, setName] = useState('');
@@ -18,9 +19,11 @@ export default function RegisterPage() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { playClick, playSuccess } = useAudio();
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
+    playClick();
     setLoading(true);
     setError('');
 
@@ -63,6 +66,8 @@ export default function RegisterPage() {
       localStorage.setItem('userRole', data.role);
       localStorage.setItem('userName', data.name);
       localStorage.setItem('userId', data._id);
+
+      playSuccess();
 
       if (data.role === 'admin') {
         navigate('/admin');

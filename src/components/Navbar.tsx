@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { MapPin, Menu, X, UserCircle, LogOut } from 'lucide-react';
+import { MapPin, Menu, X, UserCircle, LogOut, Volume2, VolumeX } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeToggle from './ThemeToggle';
 import { useTranslation } from 'react-i18next';
+import { useAudio } from '../contexts/AudioContext';
 
 export default function Navbar() {
   const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isMuted, toggleMute, playClick } = useAudio();
 
   const currentUser = {
     userId: localStorage.getItem('userId') || '',
@@ -19,6 +21,7 @@ export default function Navbar() {
   };
 
   const handleLogout = () => {
+    playClick();
     localStorage.clear();
     navigate('/');
   };
@@ -79,6 +82,16 @@ export default function Navbar() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-2 lg:gap-4">
+            <button
+              onClick={() => {
+                playClick();
+                toggleMute();
+              }}
+              className="p-1.5 lg:p-2 rounded-full text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              title={isMuted ? "Unmute" : "Mute"}
+            >
+              {isMuted ? <VolumeX className="w-4 h-4 lg:w-5 lg:h-5" /> : <Volume2 className="w-4 h-4 lg:w-5 lg:h-5" />}
+            </button>
             <ThemeToggle />
             <LanguageSwitcher />
 
