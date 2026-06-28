@@ -188,7 +188,7 @@ export default function AdminDashboard({ currentUser }: AdminDashboardProps) {
         <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl shadow-sm border border-slate-200 flex items-start justify-between">
           <div>
             <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">
-              Total Active
+              Total Reported Issues
             </p>
             <p className="text-3xl font-bold text-slate-800 dark:text-slate-200">
               {issues.length}
