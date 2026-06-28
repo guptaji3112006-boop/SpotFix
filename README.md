@@ -1,3 +1,6 @@
+<img width="357" height="136" alt="image" src="https://github.com/user-attachments/assets/db701425-47ac-4aa8-ad8e-47526635a23b" />
+
+
 # SpotFix 🏙️✨
 
 SpotFix is a next-generation smart city civic issue reporting platform designed to bridge the gap between citizens and municipal authorities. By leveraging advanced Artificial Intelligence (AI) and real-time data, SpotFix revolutionizes how civic problems—like potholes, waterlogging, and broken streetlights—are reported, verified, and resolved.
